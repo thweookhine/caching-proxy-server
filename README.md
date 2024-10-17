@@ -12,8 +12,26 @@ Simple Command Line Interface (CLI) Application to start a caching proxy server.
 
 ```bash
 git clone https://github.com/thweookhine/caching-proxy-server.git
-# Navigate to the project Directory
+### 1. Navigate to the project Directory
 cd caching-proxy-server
+
+### 2. Install Packages
+
+```
+
+npm install
+
+```
+
+### 3. Set up Environment variables
+
+```
+
+touch .env
+Note: refer env_sample for environment variables
+
+```
+
 ```
 
 ## Usage
@@ -32,12 +50,13 @@ node index.js --help
 - **Command to Start Caching Proxy Server**
 
 ```bash
-# Adding a new task
+# Starting caching-proxy server
 node index.js --port <number> --origin <url>
 ```
 
 - **Command to clear all caches**
 
 ```bash
+# Clearing all caches
 node index.js --clear-cache"
 ```
