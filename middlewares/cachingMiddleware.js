@@ -8,7 +8,11 @@ const cachingMiddleware = (origin) => {
         try{
             const response = await axios.get(request_url);
             const result = response.data
+            
             if(result){
+                console.info('The response is from the origin server')
+                console.info('X-Cache: MISS')
+                res.setHeader('X-Cache','MISS')
                 await redisClient.set(request_url,JSON.stringify(result),{
                     EX: 300,
                     NX: true,
