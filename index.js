@@ -2,7 +2,7 @@ const express = require('express');
 const { checkArgs } = require('./utils/checkArgs.js');
 const { cachingMiddleware } = require('./middlewares/cachingMiddleware.js');
 const { getDataFromCache } = require('./middlewares/getDataFromCache.js');
-const { redisClient, connectRedis } = require('./config/redis.js');
+const { redisClient, connectRedis, clearCache } = require('./config/redis.js');
 require('dotenv').config();
 const app = express();
 
@@ -14,6 +14,7 @@ checkArgs(args);
 let origin = args[3]
 app.use(getDataFromCache(origin))
 app.use(cachingMiddleware(origin))
+
 
 const startServer = () => {
     app.listen(args[1],() =>{

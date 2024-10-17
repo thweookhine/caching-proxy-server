@@ -1,7 +1,6 @@
 const { createClient } = require("redis");
 
 let redisClient;
-let redisUrl = process.env.REDIS_URL;
 
 const connectRedis = async () => {
     if (!redisClient) {
@@ -11,7 +10,6 @@ const connectRedis = async () => {
                 port: process.env.REDIS_PORT
             }
         });
-        
         redisClient.on("error", (error) => console.error(`Error: ${error}`));
         redisClient.on('connect', () => console.info('Redis connected'));
 
@@ -26,4 +24,10 @@ const connectRedis = async () => {
 };
 connectRedis()
 
-module.exports = {redisClient, connectRedis}
+const clearCache = async () => {
+    await connectRedis()
+    await redisClient.flushAll();
+    await redisClient.disconnect();
+}
+
+module.exports = {redisClient, connectRedis, clearCache}
