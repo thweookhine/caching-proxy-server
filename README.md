@@ -6,32 +6,28 @@ Simple Command Line Interface (CLI) Application to start a caching proxy server.
 
 - Node.js installed on your system.
 
-## Installation
+## Installation Setup
 
-**Clone the Repository**
+### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/thweookhine/caching-proxy-server.git
-### 1. Navigate to the project Directory
+
+# Navigate to the project Directory
 cd caching-proxy-server
+```
 
 ### 2. Install Packages
 
 ```
-
 npm install
-
 ```
 
 ### 3. Set up Environment variables
 
 ```
-
 touch .env
 Note: refer env_sample for environment variables
-
-```
-
 ```
 
 ## Usage
